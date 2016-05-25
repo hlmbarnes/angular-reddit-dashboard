@@ -5,6 +5,7 @@ redditApp.controller('SearchCtrl', ['$scope', '$http', function($scope, $http){
   $scope.lastSearch = '';
   $scope.lastIndex = '';
   $scope.results = [];
+  $scope.history = [];
 
 // LOCAL STORAGE
   // var taco = [1,2,3];
@@ -27,6 +28,8 @@ redditApp.controller('SearchCtrl', ['$scope', '$http', function($scope, $http){
       url: "http://www.reddit.com/search.json?q=" + $scope.searchTerm,
       method: 'GET'
     }
+
+    
     $http(req).then(function success(res) {
     $scope.results = [];
     var redditData = res.data.data.children
@@ -35,11 +38,11 @@ redditApp.controller('SearchCtrl', ['$scope', '$http', function($scope, $http){
  
        for (i=0; i<redditData.length; i++){
          var entry1 = redditData[i].data;
-         // console.log(entry1);
+         console.log(entry1);
          $scope.results.push(entry1);
        }
  
-       // console.log($scope.results);
+       console.log($scope.results);
      }, function error(res){
        console.log("error: ",res)
      })

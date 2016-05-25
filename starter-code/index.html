@@ -29,6 +29,7 @@
           </ul>
           <form  ng-submit="search()" class="navbar-form navbar-right">
             <input ng-model="searchTerm" type="text" class="form-control" placeholder="Search...">
+            <input type="submit" value="Seach" class="btn btn-primary">
           </form>
         </div>
       </div>
@@ -55,11 +56,11 @@
           <div class="table-responsive">
             <table class="table table-striped">
              <tbody>
-             <tr ng-repeat="oneResult in results track by $index">
-                <td>{{oneResult.title}}</td>
-                <td>{{oneResult.author}}</td>
-                <td><a class="btn btn-primary" target="_blank" href="{{oneResult.url}}">View</a>
-                <a class="btn btn-primary" ng-click="comments(oneResult.url)"href="#">Comments</a>
+             <tr ng-repeat="result1 in results track by $index">
+                <td>{{entry1.title}}</td>
+                <td>{{entry1.author}}</td>
+                <td><a class="btn btn-primary" target="_blank" href="{{entry1.url}}">View</a>
+                <a class="btn btn-primary" ng-click="comments(entry1.url)"href="#">Comments</a>
                 </td>
                 </tr>
               </tbody>
